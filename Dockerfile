@@ -1,4 +1,4 @@
-FROM centos:6
+FROM nathonfowlie/centos-jre:1.8.0_66
 MAINTAINER wlu wlu@linkernetworks.com
 
 RUN rpm -Uvh http://repos.mesosphere.com/el/6/noarch/RPMS/mesosphere-el-repo-6-2.noarch.rpm && \
