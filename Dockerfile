@@ -6,4 +6,5 @@ RUN wget http://downloads.mesosphere.com/marathon/v0.13.0/marathon-0.13.0.tgz &&
     rm marathon-0.13.0.tgz
 
 EXPOSE 8080
+
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
