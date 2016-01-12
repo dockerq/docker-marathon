@@ -12,6 +12,6 @@ RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources
 
 EXPOSE 8080
 
-ADD supervisord.conf /etc/
+ADD supervisord.conf /etc/supervisord.conf
 
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
