@@ -1,17 +1,13 @@
-FROM adolphlwq/ubuntu_jre8
+FROM centos:7
 MAINTAINER wlu wlu@linkernetworks.com
 
-RUN wget http://downloads.mesosphere.com/marathon/v0.13.0/marathon-0.13.0.tgz && \
-    tar xvf marathon-0.13.0.tgz -C /usr/local && \
-    rm marathon-0.13.0.tgz
+RUN yum -y update && \
+    rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm && \
+    yum -y install marathon-0.13.0 mesos-0.26.0 iproute.x86_64
 
-RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources.list.d/mesosphere.list && \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
-    apt-get -y update && \
-    apt-get -y install mesos
-
-EXPOSE 8080
-
+RUN yum install -y python_setuptool && \
+    easy_install supervisor
+    
 ADD supervisord.conf /etc/supervisord.conf
 
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
