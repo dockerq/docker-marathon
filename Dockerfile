@@ -1,9 +1,10 @@
-FROM centos:7
+FROM ubuntu:14.04
 MAINTAINER wlu wlu@linkernetworks.com
 
-RUN yum -y update && \
-    rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm && \
-    yum -y install marathon-0.13.0 mesos-0.26.0 iproute.x86_64
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E56151BF && \
+	echo "deb http://repos.mesosphere.com/ubuntu trusty main" > /etc/apt/sources.list.d/mesosphere.list && \
+	apt-get -y update && \
+    apt-get -y install mesos marathon
 
 RUN yum install -y python-setuptools && \
     easy_install supervisor
