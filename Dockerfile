@@ -1,7 +1,6 @@
-FROM ubuntu:14.04
+FROM ubuntu:14.10
 MAINTAINER wlu wlu@linkernetworks.com
 
-ADD sources.list /etc/apt/sources.list
 ADD mesosphere.list /etc/apt/sources.list.d/mesosphere.list
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E56151BF && \
