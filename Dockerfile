@@ -15,7 +15,6 @@ ADD supervisord.conf /etc/supervisord.conf
 
 #fix lang error
 RUN locale-gen "en_US.UTF-8" && \
-	dpkg-reconfigure locales && \
-	echo 1 > /var/zookeeper/myid
+	dpkg-reconfigure locales
 
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
