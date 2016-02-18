@@ -13,4 +13,9 @@ RUN apt-get install -y marathon=0.15.2-1.0.462.ubuntu1404 mesos=0.26.0-0.2.145.u
 
 ADD supervisord.conf /etc/supervisord.conf
 
+#fix lang error
+RUN locale-gen "en_US.UTF-8" && \
+	dpkg-reconfigure locales && \
+	echo 1 > /var/zookeeper/myid
+
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
