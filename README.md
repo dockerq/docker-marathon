@@ -1,7 +1,4 @@
-#README
-This is the `master` branch.
-
-##UEAGE
+##usage
 - build image
 ```
 git clone https://github.com/DHOPL/docker-marathon.git
@@ -14,5 +11,5 @@ marathon needs zookeeper and mesos,so you first make sure you have `zookeeper` a
 docker run -d adolphlwq/docker-marathon
 ```
 - config
-As say in [marathon official docs](https://mesosphere.github.io/marathon/docs/)
-you can `docker exec` to marathon container and start marathon
+As say in [marathon official docs about config](http://mesosphere.github.io/marathon/docs/command-line-flags.html)
+you can `docker exec` to marathon container and start marathon with command-line-flags or using env
