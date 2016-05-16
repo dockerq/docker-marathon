@@ -7,13 +7,12 @@ RUN ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 #install mesos
 RUN echo "deb http://repos.mesosphere.io/ubuntu/ vivid main" > /etc/apt/sources.list.d/mesosphere.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
-    apt-get -y update
-#    apt-get -y install mesos=0.26.0-0.2.145.ubuntu1504
+    apt-get -y update && \
+    apt-get -y install mesos=0.26.0-0.2.145.ubuntu1504
 
-
-#RUN apt-get install -y openjdk-8-jre
-#RUN apt-get install -y marathon=0.15.2-1.0.462.ubuntu1404
-
-#fix lang error
-RUN locale-gen "en_US.UTF-8" && \
+# install java8 and marathon
+RUN apt-get install -y openjdk-8-jre marathon=1.1.1-1.0.472.ubuntu1504 && \
+		locale-gen "en_US.UTF-8" && \
 		dpkg-reconfigure locales
+
+CMD ["marathon"]
