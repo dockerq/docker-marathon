@@ -1,0 +1,6 @@
+marathon:
+    image: daocloud.io/adolphlwq/docker-marathon:master-343815a
+    net: "host"
+    privileged: true
+    container_name: marathon
+    env_file: marathon_env
