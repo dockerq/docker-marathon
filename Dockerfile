@@ -10,10 +10,10 @@ RUN echo "deb http://repos.mesosphere.io/ubuntu/ vivid main" > /etc/apt/sources.
     apt-get -y update && \
     apt-get -y install mesos=0.26.0-0.2.145.ubuntu1504
 
-# install java7 and marathon
+# install java8 and marathon
 RUN apt-get install -y openjdk-8-jre && \
     apt-get install -y -f install && \
-    apt-get install -y marathon=1.1.0-1.0.471.ubuntu104 && \
+    apt-get install -y marathon=1.1.0-1.0.471.ubuntu1504 && \
 		apt-get clean
 
 RUN	locale-gen "en_US.UTF-8" && \
