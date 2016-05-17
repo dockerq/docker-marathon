@@ -13,7 +13,7 @@ RUN echo "deb http://repos.mesosphere.io/ubuntu/ vivid main" > /etc/apt/sources.
 # install java8 and marathon
 #RUN apt-get install -y openjdk-8-jre
 #RUN apt-get install -y -f install
-RUN apt-get install -y marathon=1.1.0-1.0.471.ubuntu1504 && \
+RUN apt-get install -y marathon=0.15.3-1.0.463.ubuntu1504 && \
 		apt-get clean
 
 RUN	locale-gen "en_US.UTF-8" && \
