@@ -8,7 +8,7 @@ RUN ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources.list.d/mesosphere.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
     apt-get -y update && \
-    apt-get -y install mesos=0.26.0-0.2.145.ubuntu1504
+    apt-get -y install mesos=0.26.0-0.2.145.ubuntu1404
 
 # install java8 and marathon
 #RUN apt-get install -y openjdk-8-jre
