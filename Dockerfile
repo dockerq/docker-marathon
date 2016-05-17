@@ -1,4 +1,4 @@
-FROM ubuntu:15.04
+FROM java:openjdk-8u72-jre
 MAINTAINER adolphlwq kenan3015@gmail.com
 
 #set time zone
@@ -11,8 +11,8 @@ RUN echo "deb http://repos.mesosphere.io/ubuntu/ vivid main" > /etc/apt/sources.
     apt-get -y install mesos=0.26.0-0.2.145.ubuntu1504
 
 # install java8 and marathon
-RUN apt-get install -y openjdk-8-jre
-RUN apt-get install -y -f install
+#RUN apt-get install -y openjdk-8-jre
+#RUN apt-get install -y -f install
 RUN apt-get install -y marathon=1.1.0-1.0.471.ubuntu1504 && \
 		apt-get clean
 
